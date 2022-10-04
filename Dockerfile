@@ -96,6 +96,8 @@ RUN mkdir -p /etc/apt/keyrings \
     $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
     && apt-get update \
     && apt-get install docker-ce-cli -y
+RUN echo '# docker cli with sudo\nalias docker="sudo docker"\n' >> /home/vscode/.zshrc
+
 
 
 CMD ["zsh"]
